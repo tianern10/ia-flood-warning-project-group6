@@ -23,7 +23,7 @@ def test_rivers_with_station():
 
 def test_stations_by_river():
     """
-    Task 1D by Tian Ern
+    Task 1D by Tian Ern (Completed)
     Check the function returns a dict where str maps to list of MonitoringStation objects
     Check the function does not return an empty dict
     """

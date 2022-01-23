@@ -9,7 +9,7 @@ from .utils import sorted_by_key  # noqa
 
 def rivers_with_station(stations):
     """
-    Task 1D by Tian Ern
+    Task 1D by Tian Ern (Completed)
     Return a set with the names of the rivers with a monitoring station
     """
     rivers_set = set()
@@ -21,7 +21,7 @@ def rivers_with_station(stations):
 
 def stations_by_river(stations):
     """
-    Task 1D by Tian Ern
+    Task 1D by Tian Ern (Completed)
     Return a dictionary that maps river names to a list of station objects
     """
     rivers_to_stations_dict = dict()
