@@ -41,7 +41,7 @@ def test_stations_by_river():
 
 def test_rivers_by_station_number():
     """
-    Task 1E by Tian Ern
+    Task 1E by Tian Ern (Completed)
     Check the function returns a list of (str, int) tuples
     Check that >Nth entry has the same number of stations as the Nth entry
     """

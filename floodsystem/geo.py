@@ -37,7 +37,7 @@ def stations_by_river(stations):
 
 def rivers_by_station_number(stations, N):
     """
-    Task 1E by Tian Ern
+    Task 1E by Tian Ern (Completed)
     Return a list of (river name, number of stations) tuples
     """
     rivers_to_stations_dict = stations_by_river(stations)
@@ -54,5 +54,5 @@ def rivers_by_station_number(stations, N):
             k+=1
         else:
             break
-    return rivers_tuples[:k]
+    return rivers_tuples[:k+1]
 
