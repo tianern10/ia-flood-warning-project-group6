@@ -3,7 +3,7 @@ Unit test for the geo module
 """
 
 from floodsystem.stationdata import build_station_list
-from floodsystem.geo import rivers_with_station, stations_by_river
+from floodsystem.geo import rivers_with_station, stations_by_river, rivers_by_station_number
 from floodsystem.station import MonitoringStation
 
 def test_rivers_with_station():
@@ -39,6 +39,25 @@ def test_stations_by_river():
             assert isinstance(i, MonitoringStation)
 
 
+def test_rivers_by_station_number():
+    """
+    Task 1E by Tian Ern
+    Check the function returns a list of (str, int) tuples
+    Check that >Nth entry has the same number of stations as the Nth entry
+    """
+    N = 50
+    stations = build_station_list()
+    list_of_tuples = rivers_by_station_number(stations, N)
 
-
+    # Check the function returns a list of (str, int) tuples
+    assert isinstance(list_of_tuples, list)
+    for t in list_of_tuples:
+        assert isinstance(t, tuple)
+        assert len(t)==2
+        assert isinstance(t[0], str)
+        assert isinstance(t[1], int)
     
+    # Check that >Nth entry has the same number of stations as the Nth entry
+    if len(list_of_tuples) > N:
+        for i in range(N, len(list_of_tuples)):
+            assert list_of_tuples[N-1][1] == list_of_tuples[i][1]
