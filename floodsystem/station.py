@@ -41,7 +41,8 @@ class MonitoringStation:
     
     def typical_range_consistent(self):
         """
-        Task 1F: Tian Ern
+        Task 1F: Tian Ern (Completed)
+        Check the typical high/low range data for consistency and availability
         """
         if self.typical_range == None:
             return False
@@ -53,7 +54,7 @@ class MonitoringStation:
 
 def inconsistent_typical_range_stations(stations):
     """
-    Task 1F: Tian Ern
+    Task 1F: Tian Ern (Completed)
     Return a list of stations that have inconsistent data
     """
     list_of_stations = []
