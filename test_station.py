@@ -3,8 +3,8 @@
 # SPDX-License-Identifier: MIT
 """Unit test for the station module"""
 
-from floodsystem.station import MonitoringStation
-
+from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations
+from floodsystem.stationdata import build_station_list
 
 def test_create_monitoring_station():
 
@@ -28,9 +28,8 @@ def test_create_monitoring_station():
 
     """
     Test for Task 1F: Tian Ern
-    Test for typical_range_consistent
+    Check for typical_range_consistent
     """
-    # Create a station
     trange = (-2.3, 3.4445)
     s2 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
     assert s2.typical_range_consistent() == True
@@ -43,3 +42,14 @@ def test_create_monitoring_station():
     s4 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
     assert s4.typical_range_consistent() == False
 
+
+def test_inconsistent_typical_range_stations():
+    """
+    Test 1F: Tian Ern
+    Check the function returns a list of MonitoringStation objects
+    """
+    stations = build_station_list()
+    list_of_objects = inconsistent_typical_range_stations(stations)
+    assert isinstance(list_of_objects, list)
+    for object in list_of_objects:
+        assert isinstance(object, MonitoringStation)
