@@ -24,7 +24,7 @@ def test_rivers_with_station():
 def test_stations_by_river():
     """
     Task 1D by Tian Ern
-    Check the function returns a dict where str -> MonitoringStation objects
+    Check the function returns a dict where str maps to list of MonitoringStation objects
     Check the function does not return an empty dict
     """
     stations = build_station_list()
@@ -34,7 +34,10 @@ def test_stations_by_river():
     assert isinstance(rivers_to_stations_dict, dict)
     for key, value in rivers_to_stations_dict.items():
         assert isinstance(key, str)
-        assert isinstance(value, MonitoringStation)
+        assert isinstance(value, list)
+        for i in value:
+            assert isinstance(i, MonitoringStation)
+
 
 
 

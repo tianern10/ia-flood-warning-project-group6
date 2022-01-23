@@ -5,7 +5,6 @@
 geographical data.
 
 """
-
 from .utils import sorted_by_key  # noqa
 
 def rivers_with_station(stations):
@@ -16,7 +15,7 @@ def rivers_with_station(stations):
     rivers_set = set()
     for station in stations:
         if station.river != None:
-            rivers_set.add(station)
+            rivers_set.add(station.river)
     
     return rivers_set
 
@@ -30,5 +29,6 @@ def stations_by_river(stations):
         if station.river in rivers_to_stations_dict:
             rivers_to_stations_dict[station.river].append(station)
         else:
-            rivers_to_stations_dict[station.river] = list(station)
+            rivers_to_stations_dict[station.river] = []
+            rivers_to_stations_dict[station.river].append(station)
     return rivers_to_stations_dict
