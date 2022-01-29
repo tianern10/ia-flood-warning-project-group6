@@ -6,6 +6,36 @@ geographical data.
 
 """
 from .utils import sorted_by_key  # noqa
+from haversine import haversine
+
+def stations_by_distance(stations, p):
+    """
+    Task 1B by Rajiv (Completed)
+
+    Output: Sorted list of (station, distance)
+    """
+    stations_and_distance = []
+    sorted_list = []
+    for station in stations:
+        distance = haversine(station.coord, p)
+        stations_and_distance.append((station, distance))
+    sorted_list = sorted_by_key(stations_and_distance, 1)
+    return sorted_list
+
+
+def stations_within_radius(stations, centre, r):
+    """
+    Task 1C by Rajiv (Completed)
+
+    Output: List of stations within radius r
+
+    """
+    stations_within_r = []
+    stations_and_distances = stations_by_distance(stations, centre)
+    for station, distance in stations_and_distances:
+        if distance < r:
+            stations_within_r.append(station)
+    return stations_within_r
 
 def rivers_with_station(stations):
     """

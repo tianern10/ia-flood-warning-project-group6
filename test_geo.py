@@ -5,6 +5,34 @@ Unit test for the geo module
 from floodsystem.stationdata import build_station_list
 from floodsystem.geo import rivers_with_station, stations_by_river, rivers_by_station_number
 from floodsystem.station import MonitoringStation
+from floodsystem.geo import stations_by_distance, stations_within_radius
+
+def test_stations_by_distance():
+    """
+    Task 1B by Rajiv
+    """
+    stations = build_station_list()
+    x = stations_by_distance(stations, (52.2053, 0.1218))
+    assert isinstance(x, list)
+    for i in x:
+        assert isinstance(i, tuple)
+        assert len(i) == 2
+        assert isinstance(i[0], MonitoringStation)
+        assert isinstance(i[1], float)
+
+def test_stations_within_radius():
+    """
+    Task 1C by Rajiv (Incomplete)
+
+    """
+    stations = build_station_list()
+    y = stations_within_radius(stations,(52.2053, 0.1218),20)
+    assert isinstance(y, list)
+    for i in y:
+        assert isinstance(i, MonitoringStation)
+        
+
+
 
 def test_rivers_with_station():
     """
