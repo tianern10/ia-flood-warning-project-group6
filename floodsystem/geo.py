@@ -10,7 +10,7 @@ from haversine import haversine
 
 def stations_by_distance(stations, p):
     """
-    Task 1B by Rajiv (Incomplete)
+    Task 1B by Rajiv (Completed)
 
     Output: Sorted list of (station, distance)
     """
@@ -23,18 +23,19 @@ def stations_by_distance(stations, p):
     return sorted_list
 
 
-    
+def stations_within_radius(stations, centre, r):
+    """
+    Task 1C by Rajiv (Completed)
 
+    Output: List of stations within radius r
 
-    
-        
-        
-        
-    
-
-        
-
-
+    """
+    stations_within_r = []
+    stations_and_distances = stations_by_distance(stations, centre)
+    for station, distance in stations_and_distances:
+        if distance < r:
+            stations_within_r.append(station)
+    return stations_within_r
 
 def rivers_with_station(stations):
     """
