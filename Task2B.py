@@ -19,5 +19,5 @@ def run():
 
 
 if __name__ == "__main__":
-    print("*** Task 2B: CUED Part IA Flood Warning System ***")
+    print("*** Task 2B by Tian Ern & Rajiv: CUED Part IA Flood Warning System ***")
     run()
