@@ -1,15 +1,19 @@
 """
-Unit test for the geo module
+Unit test for the plot submodule
 """
 
-from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.geo import rivers_with_station, stations_by_river, rivers_by_station_number
-from floodsystem.station import MonitoringStation
-from floodsystem.geo import stations_by_distance, stations_within_radius
+from floodsystem.plot import plot_water_levels, plot_water_level_with_fit
 
 def test_plot_water_levels():
     """
     Task 2E by Tian Ern
+    """
+    # did not test matplotlib figure due to several challenges
+    assert True
+
+def test_plot_water_level_with_fit():
+    """
+    Task 2F by Tian Ern
     """
     # did not test matplotlib figure due to several challenges
     assert True

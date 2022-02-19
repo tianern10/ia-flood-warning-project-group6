@@ -12,8 +12,9 @@ from floodsystem.flood import stations_level_over_threshold, stations_highest_re
 def run():
     stations = build_station_list()
     update_water_levels(stations)
-    list_of_stations = stations_highest_rel_level(stations, 10)
-    for i in list_of_stations:
+    list_of_highest_stations = stations_highest_rel_level(stations, 10)
+
+    for i in list_of_highest_stations:
         print(i.name, i.relative_water_level())
     
 

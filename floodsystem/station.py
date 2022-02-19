@@ -60,7 +60,7 @@ class MonitoringStation:
         Task 2B TODO
         """
         if self.typical_range_consistent() == True and self.latest_level != None:
-            rel = (self.latest_level - self.typical_range[0]) * 1.0 / (self.typical_range[1] - self.typical_range[0])
+            rel = (self.latest_level - self.typical_range[0]) / (self.typical_range[1] - self.typical_range[0])
             # discard insensible value
             if rel > 100:
                 return None
