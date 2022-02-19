@@ -5,8 +5,6 @@ Unit test for the analysis submodule
 import numpy as np
 from datetime import timedelta
 
-from pandas import array
-
 from floodsystem.analysis import polyfit
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.stationdata import build_station_list, update_water_levels
