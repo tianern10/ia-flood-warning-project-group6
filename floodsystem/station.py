@@ -7,6 +7,9 @@ for manipulating/modifying station data
 """
 
 
+from xml.sax.handler import DTDHandler
+
+
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -36,7 +39,8 @@ class MonitoringStation:
         d += "   coordinate:    {}\n".format(self.coord)
         d += "   town:          {}\n".format(self.town)
         d += "   river:         {}\n".format(self.river)
-        d += "   typical range: {}".format(self.typical_range)
+        d += "   typical range: {}\n".format(self.typical_range)
+        d += "   latest level:  {}".format(self.latest_level)
         return d
     
     def typical_range_consistent(self):
@@ -50,6 +54,20 @@ class MonitoringStation:
             return False
         else:
             return True
+    
+    def relative_water_level(self):
+        """
+        Task 2B TODO
+        """
+        if self.typical_range_consistent() == True and self.latest_level != None:
+            rel = (self.latest_level - self.typical_range[0]) * 1.0 / (self.typical_range[1] - self.typical_range[0])
+            # discard insensible value
+            if rel > 100:
+                return None
+            else:
+                return rel
+        else:
+            return None
 
 
 def inconsistent_typical_range_stations(stations):
