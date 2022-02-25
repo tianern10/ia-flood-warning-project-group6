@@ -21,6 +21,7 @@ def test_stations_highest_rel_level():
     Task 2C Test: Rajiv
     """
     stations = build_station_list()
+    update_water_levels(stations)
     N = 10
     highest_rel_level = stations_highest_rel_level(stations, N)
     assert isinstance(highest_rel_level, list)

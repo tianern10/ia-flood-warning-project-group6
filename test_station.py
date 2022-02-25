@@ -4,7 +4,7 @@
 """Unit test for the station module"""
 
 from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations, relt_level
-from floodsystem.stationdata import build_station_list
+from floodsystem.stationdata import build_station_list, update_water_levels
 
 def test_create_monitoring_station():
 
@@ -70,6 +70,7 @@ def test_relt_level():
     """
 
     stations = build_station_list()
+    update_water_levels(stations)
     rel_level = relt_level(stations[0].latest_level, stations[0])
     assert isinstance(rel_level, float)
 
