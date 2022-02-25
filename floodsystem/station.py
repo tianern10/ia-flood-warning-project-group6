@@ -80,3 +80,18 @@ def inconsistent_typical_range_stations(stations):
         if station.typical_range_consistent() == False:
             list_of_stations.append(station)
     return list_of_stations
+
+def relt_level(level, station):
+    """
+    Task 2G: Rajiv
+    """
+    if station.typical_range_consistent() == True:
+        rel = (level - station.typical_range[0]) / (station.typical_range[1] - station.typical_range[0])
+        # discard insensible value
+        if rel > 100:
+            return None
+        else:
+            return rel
+    else:
+        return None
+
