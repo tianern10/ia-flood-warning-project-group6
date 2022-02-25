@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 """Unit test for the station module"""
 
-from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations
+from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations, relt_level
 from floodsystem.stationdata import build_station_list
 
 def test_create_monitoring_station():
@@ -53,3 +53,28 @@ def test_inconsistent_typical_range_stations():
     assert isinstance(list_of_objects, list)
     for object in list_of_objects:
         assert isinstance(object, MonitoringStation)
+
+def test_relative_water_level():
+    """
+    Test 2B: Rajiv 
+    Check output data is correct for each possible input
+    """
+
+    stations = build_station_list()
+    list_of_objects = inconsistent_typical_range_stations(stations)
+
+def test_relt_level():
+    """
+    Test 2G: Rajiv
+    Check output data of correct type
+    """
+
+    stations = build_station_list()
+    rel_level = relt_level(stations[0].latest_level, stations[0])
+    assert isinstance(rel_level, float)
+
+    
+
+
+
+
